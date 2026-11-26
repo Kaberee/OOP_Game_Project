@@ -1,2 +1,2 @@
 # OOP_Game_Project
-A combat game made using the Java language 
+A space invaders game made using the Java language 
