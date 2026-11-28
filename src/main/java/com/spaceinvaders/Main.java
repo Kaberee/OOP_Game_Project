@@ -11,9 +11,21 @@ public class Main extends GameApplication {
     @Override 
     protected void initGame(){
         gameManager=new GameManager();
-          Enemy enemy = new Enemy(2);
-FXGL.entityBuilder().at(100,100).view(FXGL.texture("monster_1.png", 50, 50)).with(enemy).buildAndAttach();
-gameManager.addEnemy(enemy);
+          for(int i=0; i<8; i++){
+            Enemy enemy=new Enemy(2); 
+            gameManager.addEnemy(enemy); // Each enemy has 2 health points
+int row = i / 4;
+int col = i % 4;
+
+double x = 100 + col * 70;
+double y = 80 + row * 60;
+FXGL.entityBuilder()
+    .at(x, y)
+    .view(FXGL.texture("monster_" + (i + 1) + ".png", 65, 65))
+    .with(enemy)
+    .buildAndAttach();
+          }
+
 gameManager.initializeEnemies();
 }
 @Override
